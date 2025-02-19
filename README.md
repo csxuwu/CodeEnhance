@@ -1,2 +1,2 @@
 # CodeEnhance
-[A Codebook-Driven Approach for Low-Light Image Enhancement](https://arxiv.org/pdf/2404.05253)
+This is the official PyTorch codes for the paper: [A Codebook-Driven Approach for Low-Light Image Enhancement](https://arxiv.org/pdf/2404.05253)
