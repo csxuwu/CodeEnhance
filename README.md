@@ -1,3 +1,19 @@
 # CodeEnhance
 This is the official PyTorch codes for the paper: [A Codebook-Driven Approach for Low-Light Image Enhancement](https://arxiv.org/pdf/2404.05253)
 >Wu, Xu, et al. "CodeEnhance: A Codebook-Driven Approach for Low-Light Image Enhancement." arXiv preprint arXiv:2404.05253 (2024).
+
+## Abstract:
+Low-light image enhancement (LLIE) aims to improve low-illumination images. How- ever, existing methods face two challenges: (1) uncertainty in restoration from diverse brightness degradations; (2) loss of texture and color information caused by noise suppres- sion and light enhancement. In this paper, we propose a novel enhancement approach, CodeEnhance, by leveraging quantized priors and image refinement to address these chal- lenges. In particular, we reframe LLIE as learning an image-to-code mapping from low-light images to discrete codebook, which has been learned from high-quality images. To enhance this process, a Semantic Embedding Module (SEM) is introduced to integrate semantic information with low-level features, and a Codebook Shift (CS) mechanism, de- signed to adapt the pre-learned codebook to better suit the distinct characteristics of our low-light dataset. Additionally, we present an Interactive Feature Transformation (IFT) module to refine texture and color information during image reconstruction, allowing for interactive enhancement based on user preferences. Extensive experiments on both real- world and synthetic benchmarks demonstrate that the incorporation of prior knowledge and controllable information transfer significantly enhances LLIE performance in terms of quality and fidelity. The proposed CodeEnhance exhibits superior robustness to various degradations, including uneven illumination, noise, and color distortion.
+
+## Experiments:
+### NASA
+<img src="images/LSRW.png" width="800px">
+
+### LIME
+<img src="images/real_world.png" width="800px">
+
+### NPE
+<img src="images/compare_results.png" width="800px">
+
+### Quantitative comparisons
+<img src="figs/quantic_compare.png" width="800px">
