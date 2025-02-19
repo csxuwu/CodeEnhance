@@ -14,3 +14,21 @@ Low-light image enhancement (LLIE) aims to improve low-illumination images. How-
 
 ### Quantitative comparisons
 <img src="images/compare_results.png" width="800px">
+
+## Citation
+If you find our repo useful for your research, please cite us:
+```
+@article{wu2024codeenhance,
+  title={CodeEnhance: A Codebook-Driven Approach for Low-Light Image Enhancement},
+  author={Wu, Xu and Hou, XianXu and Lai, Zhihui and Zhou, Jie and Zhang, Ya-nan and Pedrycz, Witold and Shen, Linlin},
+  journal={arXiv preprint arXiv:2404.05253},
+  year={2024}
+}
+```
+
+## License
+Licensed under a [Creative Commons Attribution-NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/) for Non-commercial use only.
+Any commercial use should get formal permission first.
+
+## Acknowledgement
+This repository is maintained by [Xu Wu](https://csxuwu.github.io/).
