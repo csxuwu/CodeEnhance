@@ -12,8 +12,5 @@ Low-light image enhancement (LLIE) aims to improve low-illumination images. How-
 ### LIME
 <img src="images/real_world.png" width="800px">
 
-### NPE
-<img src="images/compare_results.png" width="800px">
-
 ### Quantitative comparisons
-<img src="figs/quantic_compare.png" width="800px">
+<img src="images/compare_results.png" width="800px">
