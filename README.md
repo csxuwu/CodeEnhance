@@ -21,13 +21,13 @@ Low-light image enhancement (LLIE) aims to improve low-illumination images. How-
 - CUDA >= 11.0
 - Other required packages in `codeenhance.yaml`
 
-### Train CodeEnhance
+## Train CodeEnhance
 - setting config of model and the path of dataset and pretrained pth in `options/FiveK.yaml` (AGLLNet/LOLv1/LSRW_Huawei/LSRW_Nikon)
 
 - `python train.py`
 
 
-### Test CodeEnhance
+## Test CodeEnhance
 - setting the path of dataset and model pth in `options/test_Unpaired_codeenhance.yaml`
 
 - setting the `weight_style` and ` weight_light` in `options/test_Unpaired_codeenhance.yaml` to control contrast and illumination level of enhanced image.
