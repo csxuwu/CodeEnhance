@@ -20,6 +20,8 @@ Low-light image enhancement (LLIE) aims to improve low-illumination images. How-
 - Other required packages in `codeenhance.yaml`
 
 ### Test LRCR
+setting the path of dataset and model pth in `options/test_Unpaired_codeenhance.yaml`
+
 python test.py
 
 
