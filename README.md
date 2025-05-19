@@ -32,6 +32,8 @@ setting the path of dataset and model pth in `options/test_Unpaired_codeenhance.
 
 setting the `weight_style` and ` weight_light` in `options/test_Unpaired_codeenhance.yaml` to control contrast and illumination level of enhanced image.
 
+download model pth files from google drive[https://drive.google.com/drive/folders/1e12xbhhhJjLefF-D8CJCTVjRkqEtwpAM?usp=drive_link].
+
 python test.py
 
 
