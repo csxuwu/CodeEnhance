@@ -1,0 +1,21 @@
+
+
+import cv2
+import numpy
+
+h = 2304
+w = 4096
+c = 1
+
+#read raw img
+path_sensor_raw = "/server/1.raw"
+raw_img = np.fromfile(path_sensor_raw, dtype=np.uint16)
+raw_img = raw_img.reshape(h, w, c)
+raw_img = raw.astype(np.uint16)
+
+#demosaic
+rgb_img = cv2.cvtColor(raw_img, cv2.COLOR_BayerBGGR2RGB)
+
+#normalize&save
+rgb_img_norm = cv2.normalize(rgb_img, None, 0, 255, cv2.NORM_MINMAX)
+cv2.imwrite('/server/test_rawDM_1.png', rgb_img_norm )
