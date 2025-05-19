@@ -1,0 +1,177 @@
+
+
+name: &arch_type CodeEnhance_arch  
+model_type: CodeEnhance_model
+scale: &upscale 1
+num_gpu: 1 # set num_gpu: 0 for cpu mode
+manual_seed: 0
+debug: false
+
+path:
+  pretrain_network_hq: pth/pretrained_HQPs.pth
+  pretrain_network_g: pth/codeenhance_unpaired.pth    # model pth file
+  pretrain_network_d: ~
+  strict_load: false 
+
+# dataset and data loader settings
+datasets:
+
+  test2:
+    name: MEF           
+    type: Unpaired_Dataset    
+    dataroot: test_imgs/MEF   
+
+    is_reference: false
+    reference_path: reference_imgs  
+    is_noise: false
+    beta_range: [0.3, 1.5]
+    A_range: [0.25, 1.0]
+    color_p: 1.0
+    color_range: [-0.025, 0.025]
+    io_backend:
+      type: disk
+
+  test3:
+    name: NPE           
+    type: Unpaired_Dataset    
+    dataroot: test_imgs/LL/NPE    
+
+    is_reference: false
+    reference_path: reference_imgs  
+    is_noise: false
+    beta_range: [0.3, 1.5]
+    A_range: [0.25, 1.0]
+    color_p: 1.0
+    color_range: [-0.025, 0.025]
+    io_backend:
+      type: disk
+
+  test4:
+    name: LIME                
+    type: Unpaired_Dataset    
+    dataroot: test_imgs/LIME    
+
+    is_reference: false
+    reference_path: reference_imgs  
+
+    is_noise: false
+    beta_range: [0.3, 1.5]
+    A_range: [0.25, 1.0]
+    color_p: 1.0
+    color_range: [-0.025, 0.025]
+    io_backend:
+      type: disk
+  
+
+# network structures
+network_g:
+  type: *arch_type
+  prompt_len: 3
+  gt_resolution: 256
+  norm_type: 'gn'
+  act_type: 'silu'
+  scale_factor: *upscale
+
+  use_skip: true
+  codebook_shift: true
+  weight_texture: 1
+  weight_style: 1
+  weight_light: 1
+
+  weigt_shift: 1
+  weight_shift_reg: 0.0001
+
+  codebook_params:
+    - [64, 1024, 512]
+
+  LQ_stage: true
+
+  weight_alpha: -1.0
+  frozen_module_keywords: ['quantize', 'decoder_group', 'after_quant_group', 'out_conv']
+
+network_d:
+  type: UNetDiscriminatorSN 
+  num_in_ch: 512
+
+seg:
+  name: deeplabv3plus_mobilenet
+  num_classes: 19
+  output_stride: 16
+  separable_conv: False
+  num_gpus: gpusX
+  pretrain: True
+  lr: 0.01
+  lr_policy: poly
+  loss_type: cross_entropy
+  weight_decay: 0.0001
+  ckpt: pth/best_deeplabv3plus_mobilenet_cityscapes_os16.pth
+  continue_training: False
+
+
+# training settings
+train:
+  optim_g:
+    type: Adam
+    lr: !!float 1e-4
+    weight_decay: 0
+    betas: [0.9, 0.99]
+  optim_d:
+    type: Adam
+    lr: !!float 4e-4
+    weight_decay: 0
+    betas: [0.9, 0.99]
+
+  scheduler:
+    type: MultiStepLR
+    milestones: [5000, 10000, 15000, 20000, 250000, 300000, 350000]
+    gamma: 1 
+
+  total_iter: 45000 # 45000
+  warmup_iter: -1  # no warm up
+
+  # losses
+  pixel_opt:
+    type: L1Loss
+    loss_weight: 1.0 
+    reduction: mean
+
+  gan_opt:
+    type: GANLoss
+    gan_type: hinge
+    real_label_val: 1.0
+    fake_label_val: 0.0
+    loss_weight: 0.1
+
+  codebook_opt:
+    loss_weight: 1.0
+  
+  semantic_opt:
+    loss_weight: 0.1
+
+  net_d_iters: 1
+  net_d_init_iters: !!float 0 
+
+# validation settings·
+val:
+  val_freq: 5000    # 5000
+  save_img: true
+  suffix: null
+  key_metric: psnr
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr
+      crop_border: 0    
+      test_y_channel: false
+    ssim:
+      type: calculate_ssim
+      crop_border: 0    # 4
+      test_y_channel: false
+
+
+# logging settings
+logger:
+  print_freq: 10
+  save_checkpoint_freq: !!float 1e3
+  save_latest_freq: !!float 5e2
+  show_tf_imgs_freq: !!float 1e2
+  use_tb_logger: true
