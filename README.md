@@ -22,6 +22,8 @@ Low-light image enhancement (LLIE) aims to improve low-illumination images. How-
 ### Test LRCR
 setting the path of dataset and model pth in `options/test_Unpaired_codeenhance.yaml`
 
+setting the `weight_style` and ` weight_light` in `options/test_Unpaired_codeenhance.yaml` to control contrast and illumination level of enhanced image.
+
 python test.py
 
 
