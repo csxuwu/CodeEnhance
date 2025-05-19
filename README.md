@@ -14,8 +14,15 @@ Low-light image enhancement (LLIE) aims to improve low-illumination images. How-
 ### Real World
 <img src="images/real_world.png" width="800px">
 
-### Quantitative comparisons
-<img src="images/compare_results.png" width="800px">
+## Dependencies and Installation
+
+- CUDA >= 11.0
+- Other required packages in `codeenhance.yaml`
+
+### Test LRCR
+python test.py
+
+
 
 ## Citation
 If you find our repo useful for your research, please cite us:
