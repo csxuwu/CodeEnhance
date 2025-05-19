@@ -27,7 +27,9 @@ setting the `weight_style` and ` weight_light` in `options/test_Unpaired_codeenh
 python test.py
 
 ### Train CodeEnhance
-comming soon.
+setting config of model and the path of dataset and pretrained pth in `options/FiveK.yaml` (AGLLNet/LOLv1/LSRW_Huawei/LSRW_Nikon)
+
+python train.py
 
 
 
