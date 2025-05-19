@@ -24,17 +24,17 @@ Low-light image enhancement (LLIE) aims to improve low-illumination images. How-
 ### Train CodeEnhance
 setting config of model and the path of dataset and pretrained pth in `options/FiveK.yaml` (AGLLNet/LOLv1/LSRW_Huawei/LSRW_Nikon)
 
-python train.py
+`python train.py`
 
 
 ### Test CodeEnhance
-setting the path of dataset and model pth in `options/test_Unpaired_codeenhance.yaml`
+- setting the path of dataset and model pth in `options/test_Unpaired_codeenhance.yaml`
 
-setting the `weight_style` and ` weight_light` in `options/test_Unpaired_codeenhance.yaml` to control contrast and illumination level of enhanced image.
+- setting the `weight_style` and ` weight_light` in `options/test_Unpaired_codeenhance.yaml` to control contrast and illumination level of enhanced image.
 
-download model pth files from google drive[https://drive.google.com/drive/folders/1e12xbhhhJjLefF-D8CJCTVjRkqEtwpAM?usp=drive_link].
+- download model pth files from google drive[https://drive.google.com/drive/folders/1e12xbhhhJjLefF-D8CJCTVjRkqEtwpAM?usp=drive_link].
 
-python test.py
+`python test.py`
 
 
 
