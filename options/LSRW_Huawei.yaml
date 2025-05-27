@@ -9,10 +9,10 @@ debug: false
 datasets:
   train:
     name: LSRW_Huawei_Dataset
-    type: LSRW_Dataset  # AGLLNetDataset
-    dataroot: /home/wuxu/datasets/LL/LSRW/Training data/Huawei # /home/wuxu/datasets/LL/AGLLNet/
+    type: LSRW_Dataset  
+    dataroot: /home/wuxu/datasets/LL/LSRW/Training data/Huawei 
 
-    reference_path: null  #/home/wuxu/datasets/LL/AGLLNet/
+    reference_path: reference_imgs
 
     is_noise: true
     io_backend:
@@ -37,7 +37,7 @@ datasets:
     type: LSRW_Dataset
     dataroot: /home/wuxu/datasets/LL/LSRW/Eval/Huawei
     is_reference: false
-    reference_path: /home/wuxu/datasets/LL/AGLLNet/test_enhance
+    reference_path: reference_imgs
     is_noise: true
 
     # resize: 256   # 61 arch 用到，因为内存不够
@@ -90,13 +90,13 @@ seg:
   lr_policy: poly
   loss_type: cross_entropy
   weight_decay: 0.0001
-  ckpt: /home/wuxu/codes/ACMMM2023/checkpoints/best_deeplabv3plus_mobilenet_cityscapes_os16.pth
+  ckpt: pth/best_deeplabv3plus_mobilenet_cityscapes_os16.pth
   continue_training: False
 
 # path
 path:
-  pretrain_network_hq: /home/wuxu/codes/promptenhance/pretrain_networks/pretrained_HQPs.pth
-  pretrain_network_g: /home/wuxu/codes/promptenhance/pretrain_networks/LLIE_Prior_PromptV2_5_Arch_LSRWH_All_20240807_221146_net_g_best_.pth
+  pretrain_network_hq: pth/pretrained_HQPs.pth
+  pretrain_network_g: 
   pretrain_network_d: ~
   strict_load: false 
 #  resume_state: ~
@@ -138,31 +138,7 @@ train:
     type: LPIPSLoss
     loss_weight: !!float 1.0
 
-  light_pass_filter_opt:
-    loss_weight: 0.001
-    load_path1: /home/wuxu/codes/promptenhance/pretrain_networks/LPF_LLIE_Prior_PromptV2_4_Arch_All_LOL_Dataset_20240719_173425_LightPassFilter1_latest.pth
-    load_path2: /home/wuxu/codes/promptenhance/pretrain_networks/LPF_LLIE_Prior_PromptV2_4_Arch_All_LOL_Dataset_20240719_173425_LightPassFilter2_latest.pth
   
-
-  # domain_GAN_opt:
-  #   type: GANLoss
-  #   iter: 1000
-  #   loss_weight: 0.01
-  #   kwargs:
-  #     gan_type: hinge
-  #     real_label_val: 1.0
-  #     fake_label_val: 0.0
-
-  # clip_cos_img_opt:
-  #   type: CLIP_CosSim_Img
-  #   kwargs:
-  #     dim: 0
-  #     loss_weight: 0.1
-
-#  latent_contrast_opt:
-#    type: Latent_ContrastLoss
-#    loss_weight: 0.001
-    
   gan_opt:
     type: GANLoss
     gan_type: hinge
@@ -189,7 +165,7 @@ val:
   metrics:
     psnr: # metric name, can be arbitrary
       type: calculate_psnr
-      crop_border: 0    # RIDP： crop_border为 4 ，test_y_channel为 true，retinexformer：crop_border为 0 ，test_y_channel为 false，计算时psnr，ssim的值会小一点
+      crop_border: 0   
       test_y_channel: false
     ssim:
       type: calculate_ssim
