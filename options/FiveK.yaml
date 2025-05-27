@@ -13,7 +13,7 @@ datasets:
     type: FiveK_Dataset  
     dataroot: /home/wuxu/datasets/LL/FiveK/
 
-    reference_path: /home/wuxu/datasets/LL/AGLLNet/
+    reference_path: reference_imgs
 
     is_noise: false
     io_backend:
@@ -38,7 +38,7 @@ datasets:
     type: FiveK_Dataset
     dataroot: /home/wuxu/datasets/LL/FiveK/
     is_reference: true
-    reference_path: /home/wuxu/datasets/LL/AGLLNet/test_enhance
+    reference_path: reference_imgs
     is_noise: false
 
     beta_range: [0.3, 1.5]
@@ -100,7 +100,7 @@ seg:
   lr_policy: poly
   loss_type: cross_entropy
   weight_decay: 0.0001
-  ckpt: /home/wuxu/codes/ACMMM2023/checkpoints/best_deeplabv3plus_mobilenet_cityscapes_os16.pth
+  ckpt: pth/best_deeplabv3plus_mobilenet_cityscapes_os16.pth
   continue_training: False
 
 # path
