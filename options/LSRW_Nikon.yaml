@@ -1,8 +1,8 @@
 # general settings
 # name: &arch_type LLIE_Prior_OS_Refer_Sem_Skip42_TS_Arch
 # name: &arch_type LLIE_Prior_OS_Simp_Sem_Skip42_FuseT_Arch
-name: &arch_type LLIE_Prior_PromptV2_5_Arch
-model_type: LLIE_Prior_Prompt5_Model
+name: &arch_type CodeEnhance_arch  
+model_type: CodeEnhance_Model
 scale: &upscale 1
 num_gpu: 1 # set num_gpu: 0 for cpu mode
 manual_seed: 0
