@@ -30,6 +30,26 @@ Low-light image enhancement (LLIE) aims to improve low-illumination images. How-
 ## Test CodeEnhance
 - setting the path of dataset and model pth in `options/test_Unpaired_codeenhance.yaml`
 
+  ```
+  datasets:
+
+    test2:
+      name: MEF    # your dataset name       
+      type: Unpaired_Dataset    
+      dataroot: test_imgs/MEF   # your dataset path
+  
+      is_reference: false
+      reference_path: reference_imgs  
+      is_noise: false
+      beta_range: [0.3, 1.5]
+      A_range: [0.25, 1.0]
+      color_p: 1.0
+      color_range: [-0.025, 0.025]
+      io_backend:
+        type: disk
+  ```
+
+
 - setting the `weight_style` and ` weight_light` in `options/test_Unpaired_codeenhance.yaml` to control contrast and illumination level of enhanced image.
 
 - download model pth files from google drive[https://drive.google.com/drive/folders/1e12xbhhhJjLefF-D8CJCTVjRkqEtwpAM?usp=drive_link], and copy them into 'pth/'.
