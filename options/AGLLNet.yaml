@@ -166,7 +166,7 @@ val:
   metrics:
     psnr: # metric name, can be arbitrary
       type: calculate_psnr
-      crop_border: 0    # RIDP： crop_border为 4 ，test_y_channel为 true，retinexformer：crop_border为 0 ，test_y_channel为 false，计算时psnr，ssim的值会小一点
+      crop_border: 0    
       test_y_channel: false
     ssim:
       type: calculate_ssim
