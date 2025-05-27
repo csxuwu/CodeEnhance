@@ -1,6 +1,5 @@
-# general settings
-# name: &arch_type LLIE_Prior_OS_Refer_Sem_Skip42_TS_Arch
-# name: &arch_type LLIE_Prior_OS_Simp_Sem_Skip42_FuseT_Arch
+
+
 name: &arch_type CodeEnhance_arch  
 model_type: CodeEnhance_Model
 scale: &upscale 1
