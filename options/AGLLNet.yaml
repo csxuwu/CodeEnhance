@@ -141,11 +141,6 @@ train:
     type: LPIPSLoss
     loss_weight: 1
 
-  light_pass_filter_opt:
-    loss_weight: 0.001
-    load_path1: /home/wuxu/codes/PromptEnhance/PromptEnhance_Codes/experiments/LLIE_Prior_PromptV2_2_Arch_AGLLNet_v2_Dataset_20240519_165115/models/LightPassFilter1_latest.pth
-    load_path2: /home/wuxu/codes/PromptEnhance/PromptEnhance_Codes/experiments/LLIE_Prior_PromptV2_2_Arch_AGLLNet_v2_Dataset_20240519_165115/models/LightPassFilter2_latest.pth
-  
 
   gan_opt:
     type: GANLoss
