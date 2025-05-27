@@ -38,7 +38,7 @@ datasets:
     type: LOLv1_Dataset
     dataroot: /data/xuwu/datasets/low_light/LOL_v1/
     is_reference: false
-    reference_path: /home/wuxu/datasets/LL/AGLLNet/test_enhance
+    reference_path: reference_imgs
     is_noise: true
 
     beta_range: [0.3, 1.5]
