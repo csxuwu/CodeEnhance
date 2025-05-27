@@ -89,7 +89,7 @@ seg:
   lr_policy: poly
   loss_type: cross_entropy
   weight_decay: 0.0001
-  ckpt: /home/wuxu/codes/ACMMM2023/checkpoints/best_deeplabv3plus_mobilenet_cityscapes_os16.pth
+  ckpt: pth/best_deeplabv3plus_mobilenet_cityscapes_os16.pth
   continue_training: False
 
 
