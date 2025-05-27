@@ -33,7 +33,7 @@ Low-light image enhancement (LLIE) aims to improve low-illumination images. How-
   ```
   datasets:
 
-    test2:
+    test:
       name: MEF    # your dataset name       
       type: Unpaired_Dataset    
       dataroot: test_imgs/MEF   # your dataset path
