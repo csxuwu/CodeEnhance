@@ -13,7 +13,7 @@ datasets:
     type: LOLv1_Dataset  # AGLLNetDataset
     dataroot: /data/xuwu/datasets/low_light/LOL_v1/ # /home/wuxu/datasets/LL/AGLLNet/
 
-    reference_path: null  #/home/wuxu/datasets/LL/AGLLNet/
+    reference_path: reference_imgs
 
     is_noise: true
     io_backend:
@@ -40,8 +40,6 @@ datasets:
     is_reference: false
     reference_path: /home/wuxu/datasets/LL/AGLLNet/test_enhance
     is_noise: true
-
-    # resize: 256   # 61 arch 用到，因为内存不够
 
     beta_range: [0.3, 1.5]
     A_range: [0.25, 1.0]
@@ -139,31 +137,7 @@ train:
     type: LPIPSLoss
     loss_weight: !!float 1.0
 
-  light_pass_filter_opt:
-    loss_weight: 0.5
-    load_path1: /data/xuwu/codes/low_light/PromptEnhance/experiments/LPF_LLIE_Prior_PromptV2_4_Arch_All_LOL_Dataset_20240719_173425/models/LightPassFilter1_latest.pth
-    load_path2: /data/xuwu/codes/low_light/PromptEnhance/experiments/LPF_LLIE_Prior_PromptV2_4_Arch_All_LOL_Dataset_20240719_173425/models/LightPassFilter2_latest.pth
-  
 
-  # domain_GAN_opt:
-  #   type: GANLoss
-  #   iter: 1000
-  #   loss_weight: 0.01
-  #   kwargs:
-  #     gan_type: hinge
-  #     real_label_val: 1.0
-  #     fake_label_val: 0.0
-
-  # clip_cos_img_opt:
-  #   type: CLIP_CosSim_Img
-  #   kwargs:
-  #     dim: 0
-  #     loss_weight: 0.1
-
-#  latent_contrast_opt:
-#    type: Latent_ContrastLoss
-#    loss_weight: 0.001
-    
   gan_opt:
     type: GANLoss
     gan_type: hinge
@@ -190,7 +164,7 @@ val:
   metrics:
     psnr: # metric name, can be arbitrary
       type: calculate_psnr
-      crop_border: 0    # RIDP： crop_border为 4 ，test_y_channel为 true，retinexformer：crop_border为 0 ，test_y_channel为 false，计算时psnr，ssim的值会小一点
+      crop_border: 0    
       test_y_channel: false
     ssim:
       type: calculate_ssim
