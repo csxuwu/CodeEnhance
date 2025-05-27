@@ -92,10 +92,10 @@ seg:
   ckpt: /home/wuxu/codes/ACMMM2023/checkpoints/best_deeplabv3plus_mobilenet_cityscapes_os16.pth
   continue_training: False
 
-# path
+
 path:
-  pretrain_network_hq: /data/xuwu/codes/low_light/PromptEnhance/pretrain_networks/pretrained_HQPs.pth
-  pretrain_network_g: /data/xuwu/codes/low_light/PromptEnhance/experiments/LLIE_Prior_PromptV2_5_Arch_LOLv1_ALL_20240806_204602/models/net_g_best_.pth
+  pretrain_network_hq: pth/pretrained_HQPs.pth
+  pretrain_network_g: ~
   pretrain_network_d: ~
   strict_load: false 
 #  resume_state: ~
