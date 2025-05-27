@@ -32,7 +32,7 @@ Low-light image enhancement (LLIE) aims to improve low-illumination images. How-
 
 - setting the `weight_style` and ` weight_light` in `options/test_Unpaired_codeenhance.yaml` to control contrast and illumination level of enhanced image.
 
-- download model pth files from google drive[https://drive.google.com/drive/folders/1e12xbhhhJjLefF-D8CJCTVjRkqEtwpAM?usp=drive_link].
+- download model pth files from google drive[https://drive.google.com/drive/folders/1e12xbhhhJjLefF-D8CJCTVjRkqEtwpAM?usp=drive_link], and copy them into 'pth/'.
 
 - `python test.py`
 
