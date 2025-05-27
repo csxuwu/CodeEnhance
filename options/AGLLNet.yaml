@@ -38,7 +38,7 @@ datasets:
     type: AGLLNet_v2_Dataset
     dataroot: /home/wuxu/datasets/LL/AGLLNet/
     is_reference: true
-    reference_path: /home/wuxu/datasets/LL/AGLLNet/test_enhance
+    reference_path: reference_imgs
     is_noise: *is_noise
 
     beta_range: [0.3, 1.5]
@@ -89,13 +89,13 @@ seg:
   lr_policy: poly
   loss_type: cross_entropy
   weight_decay: 0.0001
-  ckpt: /home/wuxu/codes/ACMMM2023/checkpoints/best_deeplabv3plus_mobilenet_cityscapes_os16.pth
+  ckpt: pth/best_deeplabv3plus_mobilenet_cityscapes_os16.pth
   continue_training: False
 
 # path
 path:
   pretrain_network_hq: /home/wuxu/codes/CodeEnhance/pretrain_networks/pretrained_HQPs.pth
-  pretrain_network_g: 
+  pretrain_network_g: ~
   pretrain_network_d: ~
   strict_load: false 
 #  resume_state: ~
