@@ -12,8 +12,7 @@ datasets:
   train:
     name: AGLLNet_v2_Dataset
     type: AGLLNet_v2_Dataset  # AGLLNetDataset
-    dataroot: /home/wuxu/datasets/LL/AGLLNet/ # /home/wuxu/datasets/LL/AGLLNet/
-
+    dataroot: reference_imgs 
     reference_path: /home/wuxu/datasets/LL/AGLLNet/
 
     is_noise: &is_noise true    # 是否有噪声
