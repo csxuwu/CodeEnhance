@@ -71,6 +71,18 @@ If you find our repo useful for your research, please cite us:
 }
 ```
 
+```
+@article{wu2025codebook,
+  title={A codebook-driven approach for low-light image enhancement},
+  author={Wu, Xu and Hou, Xianxu and Lai, Zhihui and Zhou, Jie and Zhang, Ya-nan and Pedrycz, Witold and Shen, Linlin},
+  journal={Engineering Applications of Artificial Intelligence},
+  volume={156},
+  pages={111115},
+  year={2025},
+  publisher={Elsevier}
+}
+```
+
 ## License
 Licensed under a [Creative Commons Attribution-NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/) for Non-commercial use only.
 Any commercial use should get formal permission first.
